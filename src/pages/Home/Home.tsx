@@ -3,7 +3,7 @@ import api from '../../axios';
 import { useAuth } from '../../context/AuthContext';
 
 const Home = () => {
-  const { user } = useAuth();
+  const { user, setUser } = useAuth();
   const navigate = useNavigate();
   const LOGOUT_URL = '/api/logout';
 
@@ -12,6 +12,7 @@ const Home = () => {
       const response = await api.get(LOGOUT_URL, { withCredentials: true });
       console.log(response);
       navigate('/login');
+      setUser(null);
     } catch (error) {
       console.log(error);
     }
