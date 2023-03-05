@@ -7,6 +7,7 @@ import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Products from './pages/Products/Products';
 import Register from './pages/Register/Register';
+import SingleProduct from './pages/SingleProduct/SingleProduct';
 
 function App() {
   return (
@@ -14,14 +15,14 @@ function App() {
       <Navbar />
       <Routes>
         {/* Protected Routes */}
-        <Route path="/" element={<RequireAuth />}>
-          <Route path="/" element={<Home />} />
+        <Route element={<RequireAuth />}>
           <Route path="/create-product" element={<CreateProduct />} />
         </Route>
         {/* Public Routes */}
+        <Route path="/" element={<Products />} />
+        <Route path="/products/:id" element={<SingleProduct />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/products" element={<Products />} />
       </Routes>
     </>
   );
