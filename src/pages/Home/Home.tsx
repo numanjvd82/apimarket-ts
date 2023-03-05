@@ -10,7 +10,6 @@ const Home = () => {
   const logoutUser = async () => {
     try {
       const response = await api.get(LOGOUT_URL, { withCredentials: true });
-      console.log(response);
       navigate('/login');
       setUser(null);
     } catch (error) {

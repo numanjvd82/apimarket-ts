@@ -38,17 +38,20 @@
 
 .navbar-dropdown {
   position: absolute;
-  top: 10%;
+  top: 48px;
   right: 0;
-  background-color: #242424;
+  background-color: #424242;
   z-index: 1;
+  padding: 0.5rem 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .navbar-dropdown-item {
-  padding: 0.5rem;
+  padding: 0.8rem;
   cursor: pointer;
 }
 
 .navbar-dropdown-item:hover {
-  background-color: #444444;
+  background-color: #888787;
 }

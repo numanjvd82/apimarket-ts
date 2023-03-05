@@ -15,13 +15,17 @@ const Navbar: React.FC = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const handleLogout = () => {
-    // handle logout logic
-    api.get('/api/logout');
-    navigate('/login', { state: location.pathname, replace: true });
-    setUser(null);
-    // close dropdown
-    setIsDropdownOpen(false);
+  const handleLogout = async () => {
+    try {
+      // handle logout logic
+      const response = await api.get('/api/logout', { withCredentials: true });
+      navigate('/login', { state: location.pathname, replace: true });
+      setUser(null);
+      // close dropdown
+      setIsDropdownOpen(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

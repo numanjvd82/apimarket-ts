@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { IProduct } from '../pages/Products/Products';
 import './Product.css';
 
@@ -8,7 +9,9 @@ type ProductProps = {
 const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
   return (
     <div className="card">
-      <img src={product.imgUrl} alt={product.name} className="card-img" />
+      <Link to={`/products/${product._id}`}>
+        <img src={product.imgUrl} alt={product.name} className="card-img" />
+      </Link>
       <div className="card-body">
         <h5 className="card-title">{product.name}</h5>
         <p className="card-text">{product.description}</p>
